@@ -134,7 +134,7 @@ function Answer() {
     }   
 }
 
-function Plus() {
+function Add() {
     sOperator = "+";
     inputEl.textContent += sOperator;
 
