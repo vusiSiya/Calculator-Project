@@ -1,51 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" meta charset="utf-8" >
-    <head >
-        <title>The Web Calculator</title>
-        <link rel="stylesheet" href="style.css"/>
-    </head>
-    <body>
-        <h1></h1>
-        <button id="expand-Butn">Expand</button><br />
-
-
-        <h4 id="input-El">
-            <input type="text" name="name" value="" />
-
-        </h4>
-        <h4 id="answer-El"></h4>
-
-        <button id="cancel-All">cancel All</button>
-        <button id="cancel-Butn">cancel</button>
-        <br />
-
-        <button onclick="sevenButn()" id="seven">7</button>
-        <button onclick="eightButn()" id="eight">8</button>
-        <button onclick="nineButn()" id="nine">9</button>
-        <button onclick=squareRootOf_X id="square-Root">√x</button>
-        <button onclick=xSquared id="exp-2">x^2</button>
-        <br />
-        <button onclick="fourButn()" id="four">4</button>
-        <button onclick="fiveButn()" id="five">5</button>
-        <button onclick="sixButn()" id="six">6</button>
-        <button id="plus">+</button>
-        <button id="minus">-</button>
-        <br />
-
-        <button onclick="threeButn()" id="three">3</button>
-        <button onclick="twoButn()" id="two">2</button>
-        <button onclick="oneButn()" id="one">1</button>
-        <button id="multiply">x</button>
-        <button id="divide">/</button>
-        <br />
-
-        <button onclick="zeroButn()" id="zero">0</button>
-        <button id="decimals">,</button>
-        <button id="Ans">Ans</button>
-        <button onclick ="Answer()"id="equal">=</button>
-
-        <script src="app.js"></script>
-    </body>
-  
+<html>
+<head>
+    <title>calculator</title>
+</head>
+<body>
+    <main class="calculator">
+        <div class="div--input">
+            <input type="number" />
+        </div>
+        <div class="div--buttons">
+        </div>
+        <script src="index.js"></script>
+    </main>
+</body>
 </html>
-
