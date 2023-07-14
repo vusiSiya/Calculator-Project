@@ -1,0 +1,49 @@
+html, body{
+    margin: 0px;
+}
+
+div.calculator{
+	display: grid;
+	gap: 0.3em;
+	justify-content: center;
+}
+
+div.all--buttons{
+    display: flex;
+    flex-direction: row;
+    /* gap: 0.3em; */
+    margin: 1em auto;
+    width: 50%;
+    justify-content: space-evenly;
+}
+div.sign{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+div.num {
+	display: grid;
+	grid-template-columns: repeat(3, 4fr);
+}
+
+button {
+	width: auto;
+	padding: 2em;
+}
+
+.buttons-operators,.buttons-numbers {
+	margin: 0px;
+	width: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.buttons-numbers {
+	margin: auto;
+}
+
+input[type="number"] {
+	margin: 0px;
+	height: 5em;
+	width: 100%;
+}
