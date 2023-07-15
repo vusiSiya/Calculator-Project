@@ -7,37 +7,14 @@ let currentNum = "";
 let firstNum;
 let secondNum;
 let operator;
+let className;
 
-const create = (_el) => document.createElement(_el);
-const textAndClassName = (_newElement,_className,_text) =>{
-    if(_text){
-        _newElement.innerText = _text;
-    }
-    _newElement.className = _className; 
-}
-const appendChildren = (_array,_parentEl,className)=>{
-    let wrapper = create("div");
-    textAndClassName( wrapper,`${className} container`);
-    _array.forEach(child => wrapper.appendChild(child));
-    _parentEl.appendChild(wrapper);
-    return _parentEl;
-}
-
-const createArray = (_string) =>{
-    let newArray = [];
-    for (let char of _string) {
-        newArray.push(char);
-    }
-    return newArray;
-}
-
-//element rendering
 const numbers = createArray("7896543210");
 const operators = createArray("/*-+=");
-const numbersParentFragmt = createBtnElements(numbers, "num");
-const operatorsParentFragmt = createBtnElements(operators, "sign");
-numberBtns.appendChild(numbersParentFragmt);
-operatorBtns.appendChild(operatorsParentFragmt); 
+const numbersFragment = wrapElements(getElements(numbers, "num"));
+const operatorsFragment = wrapElements(getElements(operators, "sign"));
+numberBtns.appendChild(numbersFragment);
+operatorBtns.appendChild(operatorsFragment); 
 
 document.addEventListener("click", (e) => {
     const { className, textContent } = e.target;
@@ -55,19 +32,36 @@ document.addEventListener("click", (e) => {
     let answer = secondNum ? getAnswer(operator) : 0;
 })
 
-function createBtnElements(_array, _type) {
-    let className =  _type
-    const elements = _array.map( (arrayEl, i) => {  
-        let newElement = create("button");
-        textAndClassName( newElement,className, arrayEl); // type void function, returning nothing.
-        return newElement;
-    })
-    let wrapperFragment = document.createDocumentFragment();
+function createArray(_string) {
     let newArray = [];
-    let currentThree = []
+    for (let char of _string) {
+        newArray.push(char);
+    }
+    return newArray;
+}
+function createEl(_el, _className, _text) {
+    let newElement = document.createElement(_el);
+    newElement.innerText = _text ? _text : "";
+    newElement.className = _className;
+    return newElement
+};
+
+function getElements(_array, _className) {
+    className = _className;
+    const elements = _array.map( (arrayEl, i) => {  
+        let newElement = createEl("button",_className, arrayEl);
+        return newElement;
+    });
+    return elements;
+}
+function wrapElements(elements) {
+    let docFragment = document.createDocumentFragment();
+    let newArray = [];
+    let currentThree = [];
+    
     elements.forEach( (el, i) =>{
         if( (i !==0 && i % 3 === 0) || (i == elements.length -1) ){
-            let update = appendChildren(currentThree,wrapperFragment,_type);
+            let update = appendChildren(currentThree,docFragment,className);
             newArray.push(update);
             currentThree = [];
             currentThree.push(el);
@@ -76,7 +70,13 @@ function createBtnElements(_array, _type) {
             currentThree.push(el);
         }   
     });
-    return wrapperFragment
+    return docFragment
+}
+function appendChildren(_elementsArray, _parentEl, className) {
+    let wrapperDiv = createEl("div", `${className} container`);
+    _elementsArray.forEach(element => wrapperDiv.appendChild(element))
+    _parentEl.appendChild(wrapperDiv);
+    return _parentEl;
 }
 
 const getNumber = (_num, _currentNum) => (currentNum + value) * 1;

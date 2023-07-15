@@ -9,16 +9,17 @@ div.calculator{
 }
 
 div.all--buttons{
-    display: flex;
-    flex-direction: row;
-    /* gap: 0.3em; */
+    display: grid;
+    gap: 0.3em;
+    grid-template-columns: repeat(2, auto);
     margin: 1em auto;
-    width: 50%;
+    width: fit-content;
     justify-content: space-evenly;
 }
 div.sign{
     display: grid;
     grid-template-columns: auto auto;
+    margin: 0px;
 }
 
 div.num {
@@ -28,7 +29,8 @@ div.num {
 
 button {
 	width: auto;
-	padding: 2em;
+	padding: 0.53em;
+	font-size: x-large;
 }
 
 .buttons-operators,.buttons-numbers {
@@ -43,7 +45,19 @@ button {
 }
 
 input[type="number"] {
-	margin: 0px;
 	height: 5em;
-	width: 100%;
+	width: auto;
+}
+
+.div--input {
+	margin: auto;
+}
+
+main.calculator {
+	display: flex;
+	justify-items:center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	width: fit-content;
+	margin: auto;
 }
