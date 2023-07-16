@@ -9,7 +9,7 @@ div.calculator{
 	padding: 1em;
 }
 
-div.all--buttons{
+div.numbers-and-operators{
     display: grid;
     gap: 0.3em;
     grid-template-columns: repeat(2, auto);

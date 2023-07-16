@@ -1,7 +1,7 @@
 const inputEl = document.querySelector("input");
 const answerEl = document.querySelector(".answer-El");
-const numberBtns = document.querySelector(".buttons-numbers");
-const operatorBtns = document.querySelector(".buttons-operators");
+const numberBtns = document.querySelector(".number-btns");
+const operatorBtns = document.querySelector(".operator-btns");
 let operatorIsClicked = false;
 let numClicked = false;
 let currentNum = "";
@@ -10,8 +10,8 @@ let secondNum;
 let operator;
 let showAnswer = false;
 let className;
-
-const numbers = createArray("7896543210. ");
+const getNumber = (_currentNum) => (_currentNum ) * 1;
+const numbers = createArray("7896543210 ");
 const operators = createArray("/*%+-= ");
 const numbersFragment = wrapElements(getElements(numbers, "num"));
 const operatorsFragment = wrapElements(getElements(operators, "sign"));
@@ -20,20 +20,22 @@ operatorBtns.appendChild(operatorsFragment);
 
 document.addEventListener("click", (e) => {
     const { className, textContent } = e.target;
-    let value = textContent * 1;
+    let value = textContent;
     if (className === "num") {
-        operatorIsClicked === false ?
-            currentNum += value
-            :
-            firstNum ? secondNum = getNumber(value, currentNum) : firstNum = getNumber(value, currentNum);
+        currentNum = firstNum && operatorIsClicked ? value : currentNum + value;
     }
     else if (className === "sign") {
         operatorIsClicked = true;
-        operator = textContent;
+        operator = value;
+        
     }
-    let answer = secondNum ? getAnswer(operator) : currentNum;
-    answerEl.textContent = answer
-    inputEl.textContent = answer * 1;
+    operatorIsClicked  && (currentNum =="" || value != operator) ?
+        secondNum = getNumber(currentNum)
+        :
+        firstNum = getNumber(currentNum) 
+    let answer = secondNum ? getAnswer(operator) : currentNum
+    answerEl.textContent = answer;
+    inputEl.textContent = answer * 1
 })
 
 function createArray(_string) {
@@ -83,7 +85,7 @@ function appendChildren(_elementsArray, _parentEl, _className) {
     return _parentEl;
 }
 
-const getNumber = (_num, _currentNum) => (currentNum + _num) * 1;
+
     
 function getAnswer(_operator){
     let answer = 0;
