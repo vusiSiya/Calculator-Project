@@ -6,6 +6,7 @@ div.calculator{
 	display: grid;
 	gap: 0.3em;
 	justify-content: center;
+	padding: 1em;
 }
 
 div.all--buttons{
@@ -18,33 +19,29 @@ div.all--buttons{
 }
 div.sign{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2,1fr);
     margin: 0px;
 }
 
 div.num {
 	display: grid;
-	grid-template-columns: repeat(3, 4fr);
+	grid-template-columns: repeat(3, 2fr);
 }
 
 button {
 	width: auto;
-	padding: 0.53em;
-	font-size: x-large;
+	padding: 0.5em;
+	font-size: 1.8em;
 }
 
 .buttons-operators,.buttons-numbers {
-	margin: 0px;
+	
 	width: auto;
 	display: flex;
 	flex-direction: column;
 }
 
-.buttons-numbers {
-	margin: auto;
-}
-
-input[type="number"] {
+input {
 	height: 5em;
 	width: auto;
 }
@@ -60,4 +57,21 @@ main.calculator {
 	flex-direction: column;
 	width: fit-content;
 	margin: auto;
+}
+
+.recieve-input {
+	display: grid;
+}
+
+p.answer-El {
+	margin: 0px;
+	border: 1px solid;
+	border-top: none;
+	height: 3em;
+	width: auto;
+}
+
+.buttons-operators {
+	grid-template-rows: repeat(2, 6fr);
+	display: grid;
 }
