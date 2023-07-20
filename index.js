@@ -11,12 +11,11 @@ let operator;
 let showAnswer = false;
 let className;
 const getNumber = (_currentNum)=>(_currentNum) * 1; 
-const numbers = createArray("7896543210");
+const numbers = createArray("789654321");
 const operators = createArray("/*+-=");
 const numbersFragment = appendChildren(elementsArray(numbers, "num"));
 const operatorsFragment = appendChildren(elementsArray(operators, "sign"));
 numberBtns.appendChild(numbersFragment);
-let additionalBtns = 
 operatorBtns.appendChild(operatorsFragment);
 
 
