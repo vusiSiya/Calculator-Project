@@ -10,12 +10,11 @@ div.calculator{
 }
 
 div.numbers-and-operators{
-    display: grid;
+    display: flex;
     gap: 0.3em;
-    grid-template-columns: repeat(2, auto);
     margin: 1em auto;
     width: fit-content;
-    justify-content: space-evenly;
+    flex-direction: row;
 }
 div.sign{
     display: grid;
@@ -23,17 +22,26 @@ div.sign{
     margin: 0px;
 }
 
-div.num {
+div.number-btns {
 	display: grid;
 	grid-template-columns: repeat(3, 2fr);
 }
 
 button {
+	margin: 0.1rem;
 	width: auto;
-	padding: 0.5em;
-	font-size: 1.8em;
+	padding: 0.5em 0.65em;
+	font-size: 1.8rem;
+	background-color: cornflowerblue;
+	border-radius: 0.25rem;
+	border: 1px solid grey;
+	color: #1a270b;
 }
 
+#del-all-btn, #del-btn{
+	padding: 0.5rem;
+	font-size: 1rem;
+}
 .buttons-operators,.buttons-numbers {
 	
 	width: auto;
@@ -42,8 +50,12 @@ button {
 }
 
 input {
-	height: 5em;
+	text-align: center;
+	min-height: 4em;
 	width: auto;
+	padding: 4px 0.15rem;
+	font-size: 1.5rem;
+	font-weight: bold;
 }
 
 .div--input {
@@ -71,7 +83,10 @@ p.answer-El {
 	width: auto;
 }
 
-.buttons-operators {
-	grid-template-rows: repeat(2, 6fr);
+.operator-btns {
 	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-row-start: 1fr;
 }
+
+
