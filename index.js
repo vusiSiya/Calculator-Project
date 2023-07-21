@@ -10,7 +10,7 @@ let secondNum;
 let operator;
 let showAnswer = false;
 let className;
-const getNumber = (_currentNum)=>(_currentNum) * 1; 
+//const getNumber = _currentNum=>_currentNum * 1; 
 const numbers = createArray("789654321");
 const operators = createArray("/*+-=");
 const numbersFragment = appendChildren(elementsArray(numbers, "num"));
@@ -27,13 +27,14 @@ document.addEventListener("click", (e)=>{
 	} else if (className === "sign") {
 		operatorIsClicked = true;
 		operator = value;
+		/*equalBtnPressed = operator === "=" ? !equalBtnPressed : equalBtnPressed;
+		return inputEl.value = getAnswer();*/
 	}
 	operatorIsClicked && (currentNum == "" || value != operator) ?
-		secondNum = getNumber(currentNum)
+		secondNum = currentNum * 1
 		:
-		firstNum = getNumber(currentNum);
-	let answer = (secondNum  && equalBtnPressed) ? getAnswer(operator) : currentNum
-	inputEl.value = answer * 1
+		firstNum = currentNum * 1;
+	inputEl.value = (secondNum) ? getAnswer(operator) : currentNum;
 })
 
 function createArray(_string) {
@@ -48,9 +49,10 @@ function elementsArray(_array, _className) {
 	const elements = _array.map((arrayEl,i)=>{
 		let newElement = createEl("button", _className, arrayEl);
 		return newElement;
-	});
+	})
 	return elements;
 }
+
 function createEl(_el, _className, _text) {
 	let newElement = document.createElement(_el);
 	newElement.innerText = _text ? _text : "";
@@ -79,13 +81,10 @@ function getAnswer(_operator) {
 	case "+":
 		answer = firstNum + secondNum;
 		break;
-	case "=":
-		showAnswer = true;
-		break;
 	default:
 		break;
 	}
-	return answer;
+	return answer * 1;
 }
 
 // Handling button numbers state:

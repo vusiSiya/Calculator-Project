@@ -12,9 +12,14 @@ div.calculator{
 div.numbers-and-operators{
     display: flex;
     gap: 0.3em;
-    margin: 1em auto;
+    margin: auto;
     width: fit-content;
     flex-direction: row;
+    /* background-color: #938383; */
+    background-color: #899b7e;
+    padding: 0.4em;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 5px 0px #514c4c;
 }
 div.sign{
     display: grid;
@@ -32,9 +37,12 @@ button {
 	width: auto;
 	padding: 0.5em 0.65em;
 	font-size: 1.8rem;
-	background-color: cornflowerblue;
+	/* background-color: cornflowerblue; */
+	background-color: #9db4dd;
 	border-radius: 0.25rem;
-	border: 1px solid grey;
+	box-shadow: inset 1px 1px 2px 1px #514c4c;
+	border: none;
+	/* border: 1px solid grey; */
 	color: #1a270b;
 }
 
@@ -73,6 +81,10 @@ main.calculator {
 
 .recieve-input {
 	display: grid;
+	padding: 0.2em;
+	border-radius: 0.5rem;
+	background-color: #938383;
+	/* box-shadow: 5px 5px 5px 0px #514c4c; */
 }
 
 p.answer-El {
@@ -90,3 +102,12 @@ p.answer-El {
 }
 
 
+
+
+.all--buttons {
+	/* background-color: #464665; */
+	/* padding: 0.4em; */
+	/* border-radius: 0.5rem; */
+}
+
+button:hover {box-shadow: none;}
