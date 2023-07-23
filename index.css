@@ -7,6 +7,13 @@ div.calculator{
 	gap: 0.3em;
 	justify-content: center;
 	padding: 1em;
+	/* background-color: #899b7e; */
+	background-color: cornflowerblue;
+	margin: auto;
+	width: fit-content;
+	border-radius: 1rem;
+	border: none;
+	box-shadow: inset 0px 0px 2px 2px #514c4c;
 }
 
 div.numbers-and-operators{
@@ -15,11 +22,10 @@ div.numbers-and-operators{
     margin: auto;
     width: fit-content;
     flex-direction: row;
-    /* background-color: #938383; */
-    background-color: #899b7e;
+    /* background-color: #c4b4cb; */
     padding: 0.4em;
     border-radius: 0.5rem;
-    box-shadow: 5px 5px 5px 0px #514c4c;
+    box-shadow: inset 0px 0px 5px 0px #514c4c;
 }
 div.sign{
     display: grid;
@@ -37,13 +43,10 @@ button {
 	width: auto;
 	padding: 0.5em 0.65em;
 	font-size: 1.8rem;
-	/* background-color: cornflowerblue; */
-	background-color: #9db4dd;
+	background-color: #3d547d;
 	border-radius: 0.25rem;
-	box-shadow: inset 1px 1px 2px 1px #514c4c;
 	border: none;
-	/* border: 1px solid grey; */
-	color: #1a270b;
+	color: #e5e5e5;
 }
 
 #del-all-btn, #del-btn{
@@ -64,6 +67,8 @@ input {
 	padding: 4px 0.15rem;
 	font-size: 1.5rem;
 	font-weight: bold;
+	border: 1px solid black;
+	border-radius: inherit;
 }
 
 .div--input {
@@ -83,8 +88,8 @@ main.calculator {
 	display: grid;
 	padding: 0.2em;
 	border-radius: 0.5rem;
-	background-color: #938383;
-	/* box-shadow: 5px 5px 5px 0px #514c4c; */
+	/* background-color: #938383; */
+	box-shadow: 0px 0px 2px 0px #514c4c;
 }
 
 p.answer-El {
@@ -110,4 +115,4 @@ p.answer-El {
 	/* border-radius: 0.5rem; */
 }
 
-button:hover {box-shadow: none;}
+button:hover {text-shadow: 5px -1px 20px black;box-shadow: 0px 0px 8px 3px black;}

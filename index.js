@@ -4,20 +4,18 @@ const numberBtns = document.querySelector(".number-btns");
 const operatorBtns = document.querySelector(".operator-btns");
 let operatorIsClicked = false;
 let equalBtnPressed = false;
+let showAnswer = false;
 let currentNum = "";
 let firstNum;
 let secondNum;
 let operator;
-let showAnswer = false;
-let className;
-//const getNumber = _currentNum=>_currentNum * 1; 
+let className; 
 const numbers = createArray("789654321");
 const operators = createArray("/*+-=");
 const numbersFragment = appendChildren(elementsArray(numbers, "num"));
 const operatorsFragment = appendChildren(elementsArray(operators, "sign"));
 numberBtns.appendChild(numbersFragment);
 operatorBtns.appendChild(operatorsFragment);
-
 
 document.addEventListener("click", (e)=>{
 	const {className, textContent} = e.target;
