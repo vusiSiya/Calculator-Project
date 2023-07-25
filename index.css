@@ -7,15 +7,25 @@ div.calculator{
 	gap: 0.3em;
 	justify-content: center;
 	padding: 1em;
+	/* background-color: #899b7e; */
+	background-color: cornflowerblue;
+	margin: auto;
+	width: fit-content;
+	border-radius: 1rem;
+	border: none;
+	box-shadow: inset 0px 0px 2px 2px #514c4c;
 }
 
 div.numbers-and-operators{
-    display: grid;
+    display: flex;
     gap: 0.3em;
-    grid-template-columns: repeat(2, auto);
-    margin: 1em auto;
+    margin: auto;
     width: fit-content;
-    justify-content: space-evenly;
+    flex-direction: row;
+    /* background-color: #c4b4cb; */
+    padding: 0.4em;
+    border-radius: 0.5rem;
+    box-shadow: inset 0px 0px 5px 0px #514c4c;
 }
 div.sign{
     display: grid;
@@ -23,17 +33,26 @@ div.sign{
     margin: 0px;
 }
 
-div.num {
+div.number-btns {
 	display: grid;
 	grid-template-columns: repeat(3, 2fr);
 }
 
 button {
+	margin: 0.1rem;
 	width: auto;
-	padding: 0.5em;
-	font-size: 1.8em;
+	padding: 0.5em 0.65em;
+	font-size: 1.8rem;
+	background-color: #3d547d;
+	border-radius: 0.25rem;
+	border: none;
+	color: #e5e5e5;
 }
 
+#del-all-btn, #del-btn{
+	padding: 0.5rem;
+	font-size: 1rem;
+}
 .buttons-operators,.buttons-numbers {
 	
 	width: auto;
@@ -42,8 +61,14 @@ button {
 }
 
 input {
-	height: 5em;
+	text-align: center;
+	min-height: 4em;
 	width: auto;
+	padding: 4px 0.15rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	border: 1px solid black;
+	border-radius: inherit;
 }
 
 .div--input {
@@ -61,6 +86,10 @@ main.calculator {
 
 .recieve-input {
 	display: grid;
+	padding: 0.2em;
+	border-radius: 0.5rem;
+	/* background-color: #938383; */
+	box-shadow: 0px 0px 2px 0px #514c4c;
 }
 
 p.answer-El {
@@ -71,7 +100,19 @@ p.answer-El {
 	width: auto;
 }
 
-.buttons-operators {
-	grid-template-rows: repeat(2, 6fr);
+.operator-btns {
 	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-row-start: 1fr;
 }
+
+
+
+
+.all--buttons {
+	/* background-color: #464665; */
+	/* padding: 0.4em; */
+	/* border-radius: 0.5rem; */
+}
+
+button:hover {text-shadow: 5px -1px 20px black;box-shadow: 0px 0px 8px 3px black;}
