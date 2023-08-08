@@ -10,18 +10,14 @@ let firstNum;
 let secondNum;
 let operator;
 let className; 
-const numbers = createArray("789654321");
-const operators = createArray("/*+-=");
-const numbersFragment = appendChildren(elementsArray(numbers, "num"));
-const operatorsFragment = appendChildren(elementsArray(operators, "sign"));
-numberBtns.appendChild(numbersFragment);
-operatorBtns.appendChild(operatorsFragment);
+
+renderBtnElements(numberBtns,operatorBtns);
 
 document.addEventListener("click", (e)=>{
 	const {className, textContent} = e.target;
 	let value = textContent;
 	if (className === "num") {
-		currentNum = firstNum && operatorIsClicked ? value : currentNum + value;
+		currentNum = (firstNum && operatorIsClicked) ? value : currentNum + value;
 	} else if (className === "sign") {
 		operatorIsClicked = true;
 		operator = value;
@@ -33,8 +29,16 @@ document.addEventListener("click", (e)=>{
 		:
 		firstNum = currentNum * 1;
 	inputEl.value = (secondNum) ? getAnswer(operator) : currentNum;
-})
+});
 
+function renderBtnElements(_numberBtns,_operatorBtns) {
+	const numbers = createArray("789654321");
+	const operators = createArray("/*+-=");
+	const numbersFragment = appendChildren(elementsArray(numbers, "num"));
+	const operatorsFragment = appendChildren(elementsArray(operators, "sign"));
+	_numberBtns.appendChild(numbersFragment);
+	_operatorBtns.appendChild(operatorsFragment);
+}
 function createArray(_string) {
 	let newArray = [];
 	for (let char of _string) {
