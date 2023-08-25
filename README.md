@@ -1,12 +1,11 @@
-# Web-Calculator
+## Calculator Project
 
-Live Demo: https://vusisiya.github.io/Web-Calculator/
+<a href="https://vusisiya.github.io/Web-Calculator/">Live Demo👈</a>
+## Languages: 
+* **JavaScript**
+* **HTML**
+* **CSS**
 
-# Languages: 
-* JavaScript
-* HTML
-* CSS
-
-# To-do:
-* adding functionality to the buttons
-* improving the layout of the page
+## To-do:
+* Improving the layout of the page
+* Working on how input is recieved and handled
