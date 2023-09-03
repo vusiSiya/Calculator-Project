@@ -1,7 +1,6 @@
 const inputEl = document.querySelector(".input-El");
 const answerEl = document.querySelector(".answer-El");
 const numberBtns = document.querySelector(".number-btns");
-
 const operatorBtns = document.querySelector(".operator-btns");
 const btnsSection = document.querySelector(".all--buttons");
 let operatorIsClicked = false;
