@@ -4,14 +4,15 @@ html, body{
 
 main {
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: 1fr 7fr 1fr;
     grid-template-columns: repeat(3,1fr);
 }
 
 .calculator{
 	grid-column: 2/-2;
-	grid-row: 2/6;
+	grid-row: 2/-2;
 	display: grid;
+	grid-template-rows: 1fr 3fr;
 	gap: 0.3em;
 	padding: 1.2em;
 	background-color: cornflowerblue;
@@ -24,8 +25,8 @@ main {
 button {
 	margin: 0.1rem;
 	width: auto;
-	padding: .65em .7em;
-	font-size: 2rem;
+	padding: .65em;
+	font-size: 1.5rem;
 	background-color: #3e5c9a;
 	border-radius: 0.25rem;
 	border: none;
@@ -47,11 +48,8 @@ input {
 
 
 p.answer-El {
-	margin: 0px;
-	border: 1px solid;
-	border-top: none;
-	height: 3em;
 	width: auto;
+	text-align: end;
 }
 
 .all--buttons {
@@ -64,3 +62,15 @@ p.answer-El {
 
 button:hover {text-shadow: none;box-shadow: none;}
 
+
+
+section.display {
+    background-color: white;
+    color: black;
+    font: bold 1.5rem Arial, sans-serif;
+    padding: .5em;
+}
+
+p {
+    margin: 0;
+}
