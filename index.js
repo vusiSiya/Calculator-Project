@@ -2,7 +2,7 @@ const inputEl = document.querySelector(".input-El");
 const answerEl = document.querySelector(".answer-El");
 const btnsSection = document.querySelector(".all--buttons");
 let operatorIsClicked = false;
-let equalBtnPressed = false;
+//let equalBtnClicked = false;
 let showAnswer = false;
 let currentNum = "";
 let firstNum;
@@ -13,59 +13,81 @@ let answer
 
 renderBtnElements();
 
-function handleClick(e){
-	console.log("clicked")
-    const {className, textContent} = e.target;
-    let value = parseInt(textContent)
-    if (value) {
-        currentNum = (firstNum && operator) 
-			? value : currentNum + value
-		
-    } else{
-        operator = textContent;
-        /*equalBtnPressed = operator === "=" ? !equalBtnPressed : equalBtnPressed;
-		return inputEl.value = getAnswer();*/
+function sideEffectsBtn(btnText) {
+    if ((btnText === "=") || (btnText === "Del") || (btnText === "AC")) {
+        return true;
     }
-    //operator && (currentNum == "") ? secondNum = value : firstNum = value 
-	if (operator && secondNum) {
-		firstNum = answer
-	    secondNum = value;
-	} else{
-		operator ? secondNum = value : firstNum = parseInt(currentNum) 
-	}
-   answer = secondNum && getAnswer(operator,firstNum, secondNum);
-	
-	inputEl.textContent += textContent + " ";
-	answerEl.textContent = answer || "";
+    return false;
+}
+function handleClick(e) {
+    const { className, textContent } = e.target;
+    if (!sideEffectsBtn(textContent)) {
+        let value = parseInt(textContent)
+        let newOperator;
+
+        if (value) {
+            currentNum = (firstNum && operator)
+                ? value : currentNum + value
+
+        } else {
+            newOperator = textContent;
+            operator = (!sideEffectsBtn(textContent)) ? newOperator : operator;
+        }
+
+        if (operator && secondNum) {
+            firstNum = answer
+            secondNum = value;
+        } else {
+            operator ?
+                secondNum = value
+                :
+                firstNum = parseInt(currentNum);
+        }
+        answer = secondNum && getAnswer(operator, firstNum, secondNum);
+
+        inputEl.value += !sideEffectsBtn(textContent) && textContent || "";
+
+    } else {
+        switch (textContent) {
+            case "=":
+                displayAnswer(true);
+                break;
+            case "Del":
+                deleteAll();
+                break;
+            case "AC":
+                deleteAll();
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+function displayAnswer(isClicked) {
+    console.log("clicked")
+    answerEl.textContent = isClicked && answer || "";
 }
 
 function renderBtnElements(_numberBtns, _operatorBtns) {
-	// #new approach!! #new way!! #faster!
-    const characters = createArray("789DC654/*321+-0.%=");
-    btnsSection.innerHTML = characters.reduce((acc,char)=>{
-        return acc + `<button type="text" >${char}</button>`
+    // #new approach!! #new way!! #faster!
+    const characters = createArray("789DC654÷x321+-0.%=");
+    btnsSection.innerHTML = characters.reduce((acc, char) => {
+        return acc + `<button type="button" >${char}</button>`
     }, "");
 
-	function targetBtn(char) {
-		return btnsSection.children[characters.indexOf(char)]
-	}
-	
-	targetBtn("=").style = "grid-column: -3/-1";
-	targetBtn("C").textContent = "AC";
-	targetBtn("D").textContent  = "Del";
-	
-	let btnsArray = [...btnsSection.children].filter(btn => (btn.textContent != "AC") && (btn.textContent != "Del")) ;
-	btnsArray.forEach( (btn)=> {
-		return btn.addEventListener("click", (e) => handleClick(e))
-   })
-    /*
-	const numbers = createArray("789654321");
-	const operators = createArray("/*+-=");
-	const numbersFragment = appendChildren(elementsArray(numbers, "num"));
-	const operatorsFragment = appendChildren(elementsArray(operators, "sign"));
-	_numberBtns.appendChild(numbersFragment);
-	_operatorBtns.appendChild(operatorsFragment);
-	*/
+    function targetBtn(char) {
+        return btnsSection.children[characters.indexOf(char)]
+    }
+
+    targetBtn("=").style = "grid-column: -3/-1";
+    targetBtn("C").textContent = "AC";
+    targetBtn("D").textContent = "Del";
+
+    let btnsArray = [...btnsSection.children]
+    btnsArray.forEach((btn) => {
+        return btn.addEventListener("click", (e) => handleClick(e))
+    });
 }
 
 function createArray(_string) {
@@ -76,48 +98,25 @@ function createArray(_string) {
     return newArray;
 }
 
-function elementsArray(_array, _className) {
-    className = _className;
-    const elements = _array.map((arrayEl,i)=>{
-        let newElement = createEl("button", _className, arrayEl);
-        return newElement;
-    }
-    )
-    return elements;
-}
-
-function createEl(_el, _className, _text) {
-    let newElement = document.createElement(_el);
-    newElement.innerText = _text ? _text : "";
-    newElement.className = _className;
-    return newElement
-}
-
-function appendChildren(_elementsArray) {
-    let fragment = document.createDocumentFragment();
-    _elementsArray.forEach(el=>fragment.appendChild(el));
-    return fragment;
-}
-
-function getAnswer(_operator, firstNum, secondNum=0) {
+function getAnswer(_operator, firstNum, secondNum = 0) {
     switch (_operator) {
-	case "%":
-     return firstNum % secondNum
-        break;
-    case "/":
-     return firstNum / secondNum
-        break;
-    case "*":
-     return firstNum * secondNum
-        break;
-    case "-":
-     return firstNum - secondNum
-        break;
-    case "+":
-     return firstNum + secondNum
-        break;
-    default:
-        break;
+        case "%":
+            return firstNum % secondNum
+            break;
+        case "÷":
+            return firstNum / secondNum
+            break;
+        case "x":
+            return firstNum * secondNum
+            break;
+        case "-":
+            return firstNum - secondNum
+            break;
+        case "+":
+            return firstNum + secondNum
+            break;
+        default:
+            break;
     }
 }
 
