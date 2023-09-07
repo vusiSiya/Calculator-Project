@@ -1,5 +1,6 @@
 html, body{
     margin: 0px;
+    height: 100%;
 }
 
 main {
@@ -36,13 +37,11 @@ button {
 }
 
 input {
-	text-align: center;
-	min-height: 4em;
 	width: auto;
 	padding: 4px 0.15rem;
 	font-size: 1.5rem;
 	font-weight: bold;
-	border: 1px solid black;
+	border: none;
 	border-radius: inherit;
 }
 
@@ -69,6 +68,8 @@ section.display {
     color: black;
     font: bold 1.5rem Arial, sans-serif;
     padding: .5em;
+    border: 1px solid black;
+    border-radius: .2rem;
 }
 
 p {
