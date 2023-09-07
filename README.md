@@ -1,6 +1,6 @@
 ## Calculator Project
 
-<a href="https://vusisiya.github.io/Web-Calculator/">Live Demo👈</a>
+<a href="https://vusisiya.github.io/calculator-project/">Live Demo👈</a>
 ## Languages: 
 * **JavaScript**
 * **HTML**
