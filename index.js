@@ -67,15 +67,14 @@ function displayAnswer(isClicked) {
     answerEl.style = isClicked ? "color: black; font-weight: bold;" : "color: grey;font-weight: normal;"
 }
 
-function renderBtnElements(_numberBtns, _operatorBtns) {
     // #new approach!! #new way!! #faster!
     const characters = createArray("789DC654÷x321+-0.%=");
     btnsSection.innerHTML = characters.reduce((acc,char)=>{
+        return acc + `<button type="text" >${char}</button>`
         return acc + `<button type="button" >${char}</button>`
     }, "");
 
-    function targetBtn(char) {
-        return btnsSection.children[characters.indexOf(char)]
+	function targetBtn(char) {
     }
 
     targetBtn("=").style = "grid-column: -3/-1";
@@ -88,18 +87,18 @@ function renderBtnElements(_numberBtns, _operatorBtns) {
     });
 }
 
+   })
+    /*
+	const numbers = createArray("789654321");
+	const operators = createArray("/*+-=");
+	const numbersFragment = appendChildren(elementsArray(numbers, "num"));
+	const operatorsFragment = appendChildren(elementsArray(operators, "sign"));
+	_numberBtns.appendChild(numbersFragment);
+	_operatorBtns.appendChild(operatorsFragment);
+	*/
 function createArray(_string) {
-    let newArray = [];
-    for (let char of _string) {
-        newArray.push(char);
-    }
-    return newArray;
-}
-
-function getAnswer(_operator, firstNum, secondNum=0) {
-    switch (_operator) {
     case "%":
-        return firstNum % secondNum
+    for (let char of _string) {
         break;
     case "÷":
         return firstNum / secondNum
@@ -117,6 +116,38 @@ function getAnswer(_operator, firstNum, secondNum=0) {
         break;
     }
 }
+function createEl(_el, _className, _text) {
+    let newElement = document.createElement(_el);
+    newElement.innerText = _text ? _text : "";
+    newElement.className = _className;
+    return newElement
+}
+
+function appendChildren(_elementsArray) {
+    let fragment = document.createDocumentFragment();
+    _elementsArray.forEach(el=>fragment.appendChild(el));
+    return fragment;
+}
+
+function getAnswer(_operator, firstNum, secondNum=0) {
+        return firstNum % secondNum
+	case "%":
+     return firstNum % secondNum
+        break;
+    case "/":
+     return firstNum / secondNum
+        break;
+    case "*":
+     return firstNum * secondNum
+        break;
+    case "-":
+     return firstNum - secondNum
+        break;
+    case "+":
+     return firstNum + secondNum
+        break;
+    default:
+        break;
 
 // Handling button numbers state:
 
